@@ -266,26 +266,32 @@ justify-content: space-evenly;
   -webkit-animation: words 2s ease-out;
   animation:         words 2s ease-out;
   animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
 }
 
 .intro1 {
   animation-delay: 0.25s;
+  -webkit-animation-delay: 0.25s;
 }
 
 .intro2 {
   animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
 }
 
 .intro3 {
   animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s;
 }
 
 .intro4 {
   animation-delay: 1s;
+  -webkit-animation-delay: 1s;
 }
 
 .intro5 {
   animation-delay: 1.25s;
+  -webkit-animation-delay: 1.25s;
 }
 
 @-webkit-keyframes words {
@@ -306,6 +312,7 @@ justify-content: space-evenly;
   position: relative;
   align-content: space-evenly;
 }
+
 .skill-icon {
 padding: 20px;
 }
@@ -360,6 +367,7 @@ padding: 20px;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }
 
 .project-description {
@@ -370,12 +378,14 @@ padding: 20px;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   text-align: center;
 }
 
 .project-description p {
   font-weight: 600;
   background: -webkit-linear-gradient(45deg, #f79502, #43d6d4);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
