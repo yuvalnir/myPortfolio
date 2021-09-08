@@ -49,7 +49,6 @@ function App() {
                         </div>
                     </div>
                     <div className="content">
-                        {/* <h2>Here comes the content</h2> */}
                         <Intro></Intro>
                         <Skills></Skills>
                         <Projects></Projects>
