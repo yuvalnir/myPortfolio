@@ -261,7 +261,7 @@ justify-content: space-evenly;
 }
 
 .intro-fade {
-  opacity: 0%;
+  opacity: 0;
   position: relative;
 
   animation: words 2s ease-out;
@@ -272,12 +272,12 @@ justify-content: space-evenly;
 }
 
 @keyframes words {
-  0% {bottom: -20px; opacity: 0%;}
-  100% {bottom: 0px; opacity: 100%;}
+  0% {bottom: -20px; opacity: 0;}
+  100% {bottom: 0; opacity: 1;}
 }
 @-webkit-keyframes words {
-  0% {bottom: -20px; opacity: 0%;}
-  100% {bottom: 0px; opacity: 100%;}
+  0% {bottom: -20px; opacity: 0;}
+  100% {bottom: 0; opacity: 1;}
 }
 
 .intro1 {
