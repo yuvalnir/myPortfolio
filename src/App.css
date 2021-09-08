@@ -399,11 +399,11 @@ padding: 20px;
 }
 
 .project:hover .project-description {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .project:hover .project-name {
-  opacity: 0%;
+  opacity: 0;
 }
 
 /* farewell section */
