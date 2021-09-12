@@ -27,32 +27,31 @@ function App() {
                             </div>
                         </div>
                         <div className="links">
-                            <h3>Links</h3>
-                            <div className="links-grid">
-                                <a
-                                    className="github"
-                                    href="https://github.com/yuvalnir"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {github}
-                                </a>
-                                <a
-                                    className="linkedin"
-                                    href="https://www.linkedin.com/in/yuval-nir-92775218a/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {linkedin}
-                                </a>
-                            </div>
+                            <a
+                                className="github"
+                                href="https://github.com/yuvalnir"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {github}
+                            </a>
+                            <a
+                                className="linkedin"
+                                href="https://www.linkedin.com/in/yuval-nir-92775218a/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {linkedin}
+                            </a>
                         </div>
                     </div>
                     <div className="content">
-                        <Intro></Intro>
-                        <Skills></Skills>
-                        <Projects></Projects>
-                        <Farewell></Farewell>
+                        <div className="mobile-content">
+                            <Intro></Intro>
+                            <Skills></Skills>
+                            <Projects></Projects>
+                            <Farewell></Farewell>
+                        </div>
                     </div>
                 </div>
                 <div className="circle1 circle-definition"></div>
