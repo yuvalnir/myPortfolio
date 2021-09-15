@@ -1,12 +1,36 @@
 import "./App.css";
+import React, {useState, useEffect, useRef} from 'react';
 import Skills from "./components/Skills";
 import ProfilePic from "./images/ProfilePic.jpg";
 import Intro from "./components/Intro";
 import Projects from "./components/Projects";
 import Farewell from "./components/Farewell";
 import { github, linkedin } from "./images/icons";
+import xSymbol from "./images/xSymbol.png";
 
 function App() {
+    const dropdownRef = useRef(null);
+    const [isActive, setIsActive] = useState(false);
+    const onClick = () => setIsActive(!isActive);
+
+    useEffect(() => {
+        const pageClickEvent = (e) => {
+            if (dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
+                setIsActive(!isActive);
+              }
+        };
+      
+        // If the item is active (ie open) then listen for clicks
+        if (isActive) {
+          window.addEventListener('click', pageClickEvent);
+        }
+      
+        return () => {
+          window.removeEventListener('click', pageClickEvent);
+        }
+      
+      }, [isActive]);
+
     return (
         <div className="App">
             <div className="main-container">
@@ -14,35 +38,65 @@ function App() {
                     <div className="dashboard">
                         <div className="user">
                             <img src={ProfilePic} alt="" />
-                            <h4>Yuval Nir</h4>
-                            <h5>Full Stack Developer</h5>
+                            <h4>Yuval<br/>Nir</h4>
+                            <h5>Full Stack<br/>Developer</h5>
                         </div>
-                        <div className="contact-info">
-                            <h3>Contact Info</h3>
-                            <div className="mobile">
+                        <div className="dropdown">
+                            <div onClick={onClick} className="drop-btn">
+                                <p className={(isActive ? "hide" : "")}>Contact info</p>
+                                <img className={(isActive ? "show" : "")} src={xSymbol} alt="" />
+                            </div>
+                            <div id="myDropdown" ref={dropdownRef} className={"dropdown-content " + (isActive ? "show" : "")}>
                                 <p>0503902417</p>
-                            </div>
-                            <div className="email">
                                 <p>yuvalnir11@gmail.com</p>
+                                <div className="drop-links">
+                                    <a
+                                        className="github"
+                                        href="https://github.com/yuvalnir"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {github}
+                                    </a>
+                                    <a
+                                        className="linkedin"
+                                        href="https://www.linkedin.com/in/yuval-nir-92775218a/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {linkedin}
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div className="links">
-                            <a
-                                className="github"
-                                href="https://github.com/yuvalnir"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {github}
-                            </a>
-                            <a
-                                className="linkedin"
-                                href="https://www.linkedin.com/in/yuval-nir-92775218a/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {linkedin}
-                            </a>
+                        <div className="contact-me">
+                            <div className="contact-info">
+                                <h3>Contact Info</h3>
+                                <div className="mobile">
+                                    <p>0503902417</p>
+                                </div>
+                                <div className="email">
+                                    <p>yuvalnir11@gmail.com</p>
+                                </div>
+                            </div>
+                            <div className="links">
+                                <a
+                                    className="github"
+                                    href="https://github.com/yuvalnir"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {github}
+                                </a>
+                                <a
+                                    className="linkedin"
+                                    href="https://www.linkedin.com/in/yuval-nir-92775218a/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {linkedin}
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div className="content">

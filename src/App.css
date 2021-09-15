@@ -34,6 +34,7 @@
 .App h1 {
   color: #426696;
   background: -webkit-linear-gradient(45deg, #426696, #43d6d4);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -41,18 +42,30 @@
 .App h2, p {
   color: #426696;
   font-weight: 300;
-  /* opacity: 0.6; */
   background: -webkit-linear-gradient(45deg, #426696, #43d6d4);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.App h4, h5 {
+.App h5 {
   color: #426696;
-  font-weight: 500;
-  /* opacity: 0.6; */
+  font-weight: 600;
+  font-size: 15px;
   margin: 0;
   background: -webkit-linear-gradient(45deg, #426696, #43d6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.App h4 {
+  color: #426696;
+  font-weight: 600;
+  font-size: 25px;
+  margin: 0;
+  background: -webkit-linear-gradient(45deg, #426696, #43d6d4);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -60,8 +73,8 @@
 .App h3 {
   color: #426696;
   font-weight: 600;
-  /* opacity: 0.6; */
   background: -webkit-linear-gradient(45deg, #426696, #43d6d4);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -191,6 +204,20 @@
   animation-delay: 11s;
 }
 
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.user h5 {
+  margin: 16px 0;
+}
+
+.user h4 {
+  margin: 10px 0;
+}
+
 .user img {
   max-height: 150px;
   max-width: 150px;
@@ -218,6 +245,10 @@
   border-radius: 2rem;
 }
 
+.contact-dropdown {
+  display: none;
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -240,6 +271,10 @@
 .github, .linkedin {
   width: 50px;
   height: 50px;
+}
+
+.dropdown {
+  display: none;
 }
 
 @-webkit-keyframes circle {
@@ -308,8 +343,6 @@
   animation-delay: 1.25s;
   -webkit-animation-delay: 1.25s;
 }
-
-
 
 /* skill section */
 
@@ -424,41 +457,32 @@ padding: 20px;
   width: 35px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 700px), screen and (max-height: 540px) {
 
   .dashboard p {
     margin: 3px;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .dashboard h4, h5 {
+    font-size: 14px;
     font-weight: 600;
   }
 
   .main-container {
-    font-family: 'Poppins', sans-serif;
-    /* min-height: 100vh; */
-    background: linear-gradient( to right top, #53e3a6, #50a3a2);
     display: block;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-
   }
 
   .glass {
-    display: flex;
-    background: white;
     flex-direction: column;
     max-height: 97vh;
     width: 100%;
     align-items: center;
     background: transparent;
     border-radius: 0;
-    -webkit-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);
-    overflow: auto;
-    box-sizing: border-box;
+    -webkit-backdrop-filter: initial;
+    backdrop-filter: initial;
   }
 
   .dashboard {
@@ -476,8 +500,13 @@ padding: 20px;
     justify-content: space-evenly;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2) );
-    border-radius: 0 0 2rem 2rem;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
+    border-radius: 0 0 1.5rem 1.5rem;
+    z-index: 3;
+  }
+
+  .content {
+    z-index: 2;
   }
 
   .mobile-content {
@@ -487,14 +516,14 @@ padding: 20px;
     max-height: 80vh;
     margin: auto;
     width: 90%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background: linear-gradient(
       to right bottom, 
       rgba(255, 255, 255, 0.7), 
       rgba(255, 255, 255, 0.2)
     );
     border-radius: 2rem;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
     z-index: 2;
     overflow: auto;
   }
@@ -508,9 +537,13 @@ padding: 20px;
   }
 
   .user img {
-    height: 5%;
-    width: 5%;
+    height: 15%;
+    width: 15%;
     border: double 2px transparent;
+  }
+
+  .contact-me {
+    display: none;
   }
 
   .contact-info {
@@ -534,6 +567,116 @@ padding: 20px;
   .circle-definition {
     bottom: -30px;
   }
+
+  .skill {
+    grid-template-columns: auto auto;
+  }
+
+  /* drop down menu */
+
+  .drop-btn {
+    display: block;
+    border: none;
+    border-radius: 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
+    cursor: pointer;
+  }
+
+  /* .drop-btn:active {
+    animation: close 0.5s ease-out;
+    -webkit-animation: close 0.5s ease-out;
+  
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
+
+  @keyframes close {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  }
+  @-webkit-keyframes close {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  } */
+
+  .drop-btn p {
+    font-size: 15px;
+    background: -webkit-linear-gradient(45deg, #426696, #43d6d4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+  }
+  .drop-btn img {
+    display: none;
+    width: 15px;
+    padding: 10px;
+  }
+
+  .drop-btn:hover, .drop-btn:focus {
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    top: 40px;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(
+      to right bottom, 
+      rgba(255, 255, 255, 0.9), 
+      rgba(255, 255, 255, 0.5)
+    );
+    border-radius: 2rem;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .dropdown-content a {
+    padding: 12px 16px;
+  }
+
+  .dropdown-content p {
+    font-size: 15px;
+    margin: 10px;
+  }
+
+  .drop-links {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .dropdown a:hover {
+    /* background-color: #ddd; */
+    background: linear-gradient(
+      to right bottom, 
+      rgba(255, 255, 255, 0.9), 
+      rgba(255, 255, 255, 0.7)
+    );
+    border-radius: 1.5rem;
+  }
+  
+  .show {
+    display: block !important;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
   
 }
 
