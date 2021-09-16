@@ -287,8 +287,10 @@
 }
 
 /* intro section */
+
 .intro {
   min-height: 80vh;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -346,8 +348,11 @@
 
 /* skill section */
 
-.skill {
-  height: 80vh;
+.skills {
+  min-height: 80vh;
+}
+
+.skill-grid {
   display: grid;
   grid-template-columns: auto auto auto;
   position: relative;
@@ -355,16 +360,22 @@
 }
 
 .skill-icon {
-padding: 20px;
+  padding: 20px;
 }
 
 /* projects section */
 
 .projects {
-  height: 80vh;
+  min-height: 80vh;
+  
+}
+
+.projects-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
   position: relative;
+  justify-content: space-evenly;
   align-content: space-evenly;
   align-items: center;
 }
@@ -568,7 +579,7 @@ padding: 20px;
     bottom: -30px;
   }
 
-  .skill {
+  .skill-grid {
     grid-template-columns: auto auto;
   }
 
