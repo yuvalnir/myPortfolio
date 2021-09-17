@@ -6,7 +6,6 @@ import Intro from "./components/Intro";
 import Projects from "./components/Projects";
 import Farewell from "./components/Farewell";
 import { github, linkedin } from "./images/icons";
-import xSymbol from "./images/xSymbol.png";
 
 function App() {
     const dropdownRef = useRef(null);
@@ -20,7 +19,7 @@ function App() {
               }
         };
       
-        // If the item is active (ie open) then listen for clicks
+        // If the item is active (menu is open) then listen for clicks
         if (isActive) {
           window.addEventListener('click', pageClickEvent);
         }
@@ -28,7 +27,6 @@ function App() {
         return () => {
           window.removeEventListener('click', pageClickEvent);
         }
-      
       }, [isActive]);
 
     return (
@@ -42,9 +40,7 @@ function App() {
                             <h5>Full Stack<br/>Developer</h5>
                         </div>
                         <div className="dropdown">
-                            <div onClick={onClick} className="drop-btn">
-                                <p className={(isActive ? "hide" : "")}>Contact info</p>
-                                <img className={(isActive ? "show" : "")} src={xSymbol} alt="" />
+                            <div onClick={onClick} className={"drop-btn " + (isActive ? "btn-clicked" : "")}>
                             </div>
                             <div id="myDropdown" ref={dropdownRef} className={"dropdown-content " + (isActive ? "show" : "")}>
                                 <p>0503902417</p>

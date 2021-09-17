@@ -593,37 +593,50 @@
     -webkit-backdrop-filter: blur(10px);
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
     cursor: pointer;
+    width: 106px;
+    height: 25px;
+    animation: grow 0.5s ease forwards;
+    -webkit-animation: grow 0.5s ease forwards;
   }
 
-  /* .drop-btn:active {
-    animation: close 0.5s ease-out;
-    -webkit-animation: close 0.5s ease-out;
-  
-    animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
-  }
-
-  @keyframes close {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
-  }
-  @-webkit-keyframes close {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
-  } */
-
-  .drop-btn p {
+  .drop-btn::after {
+    content: "Contact info";
     font-size: 15px;
+    font-weight: 600;
+    padding: 5px;
     background: -webkit-linear-gradient(45deg, #426696, #43d6d4);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: block;
   }
-  .drop-btn img {
-    display: none;
+
+  @keyframes grow {
+    0% {opacity: 0; width: 15px; height: 15px;}
+    100% {opacity: 1; width: 106px; height: 25px;}
+  }
+  @-webkit-keyframes grow {
+    0% {opacity: 0; width: 15px; height: 15px;}
+    100% {opacity: 1; width: 106px; height: 25px;}
+  }
+
+  .btn-clicked {
+    content: url('./images/xSymbol.png');
     width: 15px;
-    padding: 10px;
+    height: 15px;
+    padding: 5px;
+    animation: shrink 0.5s ease forwards;
+    -webkit-animation: shrink 0.5s ease forwards;
+  }
+
+  @keyframes shrink {
+    0% {opacity: 0; width: 106px; height: 25px;}
+    40% {opacity: 0;}
+    100% {opacity: 1; width: 15px; height: 15px;}
+  }
+  @-webkit-keyframes shrink {
+    0% {opacity: 0; width: 106px; height: 25px;}
+    40% {opacity: 0;}
+    100% {opacity: 1; width: 15px; height: 15px;}
   }
 
   .drop-btn:hover, .drop-btn:focus {
@@ -653,7 +666,18 @@
       rgba(255, 255, 255, 0.5)
     );
     border-radius: 2rem;
-    transition: 0.5s ease-in-out;
+    animation: appear 0.5s ease forwards;
+  }
+
+  @keyframes appear {
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  @-webkit-keyframes appear {
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+    100% {opacity: 1;}
   }
   
   .dropdown-content a {
